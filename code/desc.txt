@@ -1,0 +1,4 @@
+groundControl is for the arduino plugged into the computer
+canSat is for the arduino in the device
+common is for code neededed for both
+computer is for the computer the groundControl is plugged into
