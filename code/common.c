@@ -11,7 +11,7 @@ uint8_t filler[64-phSize];
 // uint8_t filler[2];
 };
 
-//a packet containing data for the cansat to act upon
+//a packet containing data for the cansat to act upon, only if needed. If not I can restructure a bit
 struct commandPacket{
 packetHeader
 commonPacketProperties

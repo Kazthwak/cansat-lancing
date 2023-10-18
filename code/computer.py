@@ -1,3 +1,7 @@
-#two threads:
-#one takes data continuously
-#the other waits for commands from the user
+while True:
+	#wait for data
+	#log data
+	#check to see if trasmission required
+	#send if there is
+	#repeat
+	pass
