@@ -8,6 +8,7 @@
 struct maxPacketSize{
 packetHeader
 uint8_t filler[64-phSize];
+// uint8_t filler[2];
 };
 
 //a packet containing data for the cansat to act upon
@@ -23,8 +24,23 @@ commonPacketProperties
 };
 
 
-uint8_t chechChecksum(struct maxPacketSize *structptr){
+//both seem to work
+void generateChecksum(struct maxPacketSize* structptr){
+structptr->checksum = 0;
+uint16_t sum = 0;
+for(uint8_t i = 0; i < sizeof(struct maxPacketSize)/2; i++){
+	sum += ((uint16_t*)structptr)[i];
+}
+structptr->checksum = (sum*-1);
+}
+
+uint8_t chechChecksum(struct maxPacketSize* structptr){
 //check if length bytes in struct add to 0 as a uint16
+uint16_t sum = 0;
+for(uint8_t i = 0; i < sizeof(struct maxPacketSize)/2; i++){
+	sum += ((uint16_t*)structptr)[i];
+}
+return(!sum);
 }
 
 uint8_t isData(){
