@@ -52,6 +52,16 @@ uint8_t getData(struct maxPacketSize *structptr){
 //place the data in the struct given
 }
 
+//wait for data to be available then recieve it
+void wait_for_data(struct maxPacketSize *structptr){
+restart:
+if(getData(structptr)){
+	return;
+}
+goto restart;
+}
+
+
 void sendData(struct maxPacketSize *structptr){
 //send length bytes in the struct
 }
