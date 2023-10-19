@@ -1,8 +1,8 @@
-#include "common.c"
+#include "../common.ino"
 
 void setup(){
   Serial.begin(9600);
-  
+  init();
   Serial.println("Beginning ... "); 
 }
 

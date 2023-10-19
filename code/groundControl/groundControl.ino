@@ -1,8 +1,9 @@
-#include "common.c"
+#include "../common.ino"
 
 //will be used when tested on pc
 void setup(){
   Serial.begin(9600);
+  init();
 Serial.println("Listening..."); 
 }
 
