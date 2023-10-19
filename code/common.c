@@ -53,7 +53,7 @@ uint8_t getData(struct maxPacketSize *structptr){
 }
 
 //wait for data to be available then recieve it
-void wait_for_data(struct maxPacketSize *structptr){
+void waitForData(struct maxPacketSize *structptr){
 restart:
 if(getData(structptr)){
 	return;
