@@ -1,5 +1,10 @@
-#define pin 0
+#include <SPI.h>
+#include <Mirf.h>
+#include <nRF24L01.h>
+#include <MirfHardwareSpiDriver.h>
 #include <stdint.h>
+
+#define pin 0
 #define packetHeader uint8_t id; uint16_t checksum;
 #define phSize 3
 #define commonPacketProperties uint64_t timestamp; 
@@ -68,4 +73,12 @@ void sendData(struct maxPacketSize *structptr){
 
 void init(){
 //initialize the library for transmition and recieving
+Mirf.cePin = 7;
+Mirf.csnPin = 8;
+Mirf.spi = &MirfHardwareSpi;
+Mirf.init();
+Mirf.setRADDR((byte *)"serv1");
+// Mirf.payload = sizeof(maxPacketSize);
+Mirf.payload = sizeof(int)
+Mirf.config();
 }
